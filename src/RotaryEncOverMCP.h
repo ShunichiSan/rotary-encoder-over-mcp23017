@@ -8,8 +8,8 @@
 #ifndef SRC_ROTARYENCOVERMCP_H_
 #define SRC_ROTARYENCOVERMCP_H_
 
-/* Describes new objects based on the Rotary and Adafruit MCP23017 library */
-#include <Adafruit_MCP23017.h>
+/* Describes new objects based on the Rotary and Adafruit MCP23008 library */
+#include <Adafruit_MCP23008_encodeMod.h>
 #include <Rotary.h>
 
 /* function pointer definition */
@@ -24,7 +24,7 @@ typedef void (*rotaryActionFunc)(bool clockwise, int id);
  * */
 class RotaryEncOverMCP {
 public:
-    RotaryEncOverMCP(Adafruit_MCP23017* mcp, byte pinA, byte pinB, rotaryActionFunc actionFunc = nullptr, int id = 0)
+    RotaryEncOverMCP(Adafruit_MCP23008* mcp, byte pinA, byte pinB, rotaryActionFunc actionFunc = nullptr, int id = 0)
     : rot(pinA, pinB), mcp(mcp),
       pinA(pinA), pinB(pinB),
       actionFunc(actionFunc), id(id) {
@@ -64,13 +64,13 @@ public:
         }
     }
 
-    Adafruit_MCP23017* getMCP() {
+    Adafruit_MCP23008* getMCP() {
         return mcp;
     }
 
 private:
     Rotary rot;                         /* the rotary object which will be created*/
-    Adafruit_MCP23017* mcp = nullptr;   /* pointer the I2C GPIO expander it's connected to */
+    Adafruit_MCP23008* mcp = nullptr;   /* pointer the I2C GPIO expander it's connected to */
     uint8_t pinA = 0;
     uint8_t pinB = 0;           /* the pin numbers for output A and output B */
     rotaryActionFunc actionFunc = nullptr;  /* function pointer, will be called when there is an action happening */
