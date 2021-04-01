@@ -1,14 +1,14 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <Adafruit_MCP23017.h>
+#include <Adafruit_MCP23008_encodeMod.h>
 #include <Rotary.h>
 #include <RotaryEncOverMCP.h>
 
-/* Our I2C MCP23017 GPIO expanders */
-Adafruit_MCP23017 mcp;
+/* Our I2C MCP23008 GPIO expanders */
+Adafruit_MCP23008 mcp;
 
 //Array of pointers of all MCPs if there is more than one
-Adafruit_MCP23017* allMCPs[] = { &mcp };
+Adafruit_MCP23008* allMCPs[] = { &mcp };
 constexpr int numMCPs = (int)(sizeof(allMCPs) / sizeof(*allMCPs));
 
 /* function prototypes */

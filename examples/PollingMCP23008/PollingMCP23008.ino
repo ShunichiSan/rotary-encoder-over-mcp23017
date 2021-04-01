@@ -8,8 +8,8 @@
 Adafruit_MCP23008 mcp;
 
 //Array of pointers of all MCPs if there is more than one
-Adafruit_MCP23008* allMCPs[] = { 1 };
-constexpr int numMCPs = 1;//(int)(sizeof(allMCPs) / sizeof(*allMCPs));
+Adafruit_MCP23008* allMCPs[] = { &mcp };
+constexpr int numMCPs = (int)(sizeof(allMCPs) / sizeof(*allMCPs));
 
 /* function prototypes */
 void RotaryEncoderChanged(bool clockwise, int id);
@@ -17,7 +17,7 @@ void RotaryEncoderChanged(bool clockwise, int id);
 /* Array of all rotary encoders and their pins */
 RotaryEncOverMCP rotaryEncoders[] = {
         // outputA,B on GPA7,GPA6, register with callback and ID=1
-        RotaryEncOverMCP(1, 7, 6, &RotaryEncoderChanged, 1)
+        RotaryEncOverMCP(&mcp, 7, 6, &RotaryEncoderChanged, 1)
 };
 constexpr int numEncoders = (int)(sizeof(rotaryEncoders) / sizeof(*rotaryEncoders));
 

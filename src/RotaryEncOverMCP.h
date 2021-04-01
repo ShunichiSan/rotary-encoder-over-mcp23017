@@ -35,10 +35,10 @@ public:
         if(mcp != nullptr) {
             mcp->pinMode(pinA, INPUT);
             mcp->pullUp(pinA, 0); //disable pullup on this pin
-            mcp->setupInterruptPin(pinA,CHANGE);
+            //mcp->setupInterruptPin(pinA,CHANGE);
             mcp->pinMode(pinB, INPUT);
             mcp->pullUp(pinB, 0); //disable pullup on this pin
-            mcp->setupInterruptPin(pinB,CHANGE);
+            //mcp->setupInterruptPin(pinB,CHANGE);
         }
     }
 
