@@ -22,7 +22,7 @@ public:
   bool pullUp(uint8_t p, uint8_t d);
   uint8_t digitalRead(uint8_t p);
   uint8_t readGPIO(void);
-  uint16_t readGPIOA();B
+  uint16_t readGPIOAB();
   
   bool writeGPIO(uint8_t);
 
